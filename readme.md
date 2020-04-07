@@ -38,11 +38,12 @@ To run the script, a moodle api token is required. Create one according to [thes
 The following functions are needed:
  - core_course_create_categories
  - core_course_get_categories
- - core_course_create_courses
  - core_course_get_courses_by_field
+ - core_course_create_courses
+ - core_course_duplicate_course
+ - core_course_update_courses
  - core_user_create_users
  - enrol_manual_enrol_users
- - core_course_update_categories
 
 Also at this point the script needs to be modified to access the api endpoint and ldap server. Open it in your favourite code editor and change the following:
 ````
