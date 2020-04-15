@@ -67,6 +67,9 @@ class Moodle:
         else:
             return None
 
+    def courses_get(self):
+        return self.call('core_course_get_courses')
+
     def course_create(self, name, categoryid, displayname=None):
         """ create a course with name and category-id """
         if displayname is None:
@@ -94,6 +97,9 @@ class Moodle:
         else:
             print(f'Shortname {name} not unique. There are {len(crs_list)} courses with this shortname.')
         return None
+
+    def course_get_enroled_user(self, courseid):
+        return self.call('core_enrol_get_enrolled_users', courseid=courseid)
 
     def users_create(self, userlist):
         """ Create moodle-user from a list of ldap-users """
