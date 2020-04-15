@@ -103,11 +103,12 @@ def enrol_users(moodle, users):
         muser = {}
         if u.cl == 'teachers':
             muser['roleid'] = rid_teachers
+            muser['courseid'] = m.course_get_id(teachersroom)
         else:
             muser['roleid'] = rid_students
+            muser['courseid'] = m.course_get_id(u.cl)
 
         muser['userid'] = u.moodleId
-        muser['courseid'] = m.course_get_id(u.cl)
         if muser['courseid'] is None:
             continue
         musers.append(muser)
