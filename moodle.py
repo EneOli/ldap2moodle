@@ -105,6 +105,9 @@ class Moodle:
         """ Create moodle-user from a list of ldap-users """
         return self.call('core_user_create_users', users=userlist)
 
+    def users_update(self, users):
+        return self.call('core_user_update_users', users=users)
+
     def enrol_users(self, users):
         if len(users) > 0:
             self.call('enrol_manual_enrol_users', enrolments=users)
