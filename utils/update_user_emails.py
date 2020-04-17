@@ -15,6 +15,8 @@ ENDPOINT = '/webservice/rest/server.php'
 
 m = moodle.Moodle(URL + ENDPOINT, KEY)
 
+user_updates = 0
+
 with open('user_dump.json', 'r') as userfile:
     users = json.load(userfile)['users']
     newUsers = m.users_get({'key': 'auth', 'value': 'ldap'})['users']
@@ -22,7 +24,10 @@ with open('user_dump.json', 'r') as userfile:
         if "linux.lokal" not in user["email"]:
             for nUser in newUsers:
                 if nUser['username'] == user['username']:
+                    if 'linux.lokal' not in nUser['email']:
+                        break
+                    user_updates = user_updates + 1
                     print('Update user: ', user['username'], ' <', user['email'], '>')
                     m.users_update([{'id': nUser['id'], 'email': user['email']}])
 
-print('===DONE===')
+print('=== DONE, edited ' + str(user_updates) + ' users ===')
