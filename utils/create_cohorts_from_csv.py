@@ -46,6 +46,7 @@ def findShort(first, second, ldapusers):
 with codecs.open('export_aus_schulverwaltung.csv', 'r', ENCODING) as csvfile:
     courses = list(csv.reader(csvfile, delimiter=';'))
     teacherlist = []
+    pluginlist = []
     courses.pop(0)
     cs = []
     ccx = []
@@ -85,8 +86,8 @@ with codecs.open('export_aus_schulverwaltung.csv', 'r', ENCODING) as csvfile:
                             cs.append(shortname + ',' + longname + ',' + str(
                                 category) + ',' + summary + ',' + 'manual' + ',' + 'student' + ',,' + '\r\n')
                             cs = list(set(cs))
-                            plugin.write(
-                                'add,' + 'cohort,' + shortname + ',' + shortname + ',0,' + shortname + ',student\r\n')
+                            pluginlist.append('add,' + 'cohort,' + shortname + ',' + shortname + ',0,' + shortname + ',student\r\n')
                         outfile.write(''.join(cs))
                         teachers.write(''.join(list(set(teacherlist))))
                         cc.write(''.join(list(set(ccx))))
+                        plugin.write(''.join(list(set(pluginlist))))
