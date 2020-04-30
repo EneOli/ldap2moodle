@@ -25,7 +25,7 @@ KEY = 'REPLACE_ME'
 URL = 'REPLACE_ME'
 ENDPOINT = '/webservice/rest/server.php'
 
-''''--------------------------------------------------------------------------------'''
+'''--------------------------------------------------------------------------------'''
 ldapusers = ldaphelper.getLdapUsers(ldap_server, ldap_basedn, [])  # get all users
 
 m = moodle.Moodle(URL + ENDPOINT, KEY)
