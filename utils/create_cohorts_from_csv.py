@@ -59,6 +59,7 @@ with codecs.open('0.csv', 'r', ENCODING) as csvfile:
             with open('2.csv', "w") as cc:
                 cc.write('name,idnumber,description, category\r\n')
                 with open("1.csv", "w") as outfile:
+                    outfile.write("shortname,fullname,category,summary,enrolment_1,enrolment_1_role,enrolment_1_enrolperiod,role_student\r\n")
                     for course in courses:
                         teacher_short = course[0][-3:].replace(' ', '').replace('-', '')
                         shortname = 'TG ' + teacher_short
