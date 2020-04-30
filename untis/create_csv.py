@@ -13,7 +13,7 @@ def findName(short, longs):
                 longname = longname[0]
             else:
                 longname = longname[1] + ' ' + longname[0]
-            return longname.replace("ä","ae").replace("Ä","Ae").replace("ö","oe").replace("Ö","oe").replace("ü","ue").replace("Ü","ue")
+            return longname.replace("ä", "ae").replace("Ä", "Ae").replace("ö", "oe").replace("Ö", "oe").replace("ü","ue").replace("Ü", "ue").replace('ß', 'ss')
     return ''
 
 
